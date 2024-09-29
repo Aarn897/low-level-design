@@ -1,5 +1,5 @@
-Requirements:
-The hotel management system should
+# Hotel Management System
+## Requirements
 1. allow guests to book rooms, check-in, and check-out.
 2. manage different types of rooms, such as single, double, deluxe, and suite.
 3. handle room availability and reservation status.
