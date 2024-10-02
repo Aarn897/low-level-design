@@ -55,7 +55,7 @@ public class TaskScheduler {
                 log.info("Retrying task, attempt: {}", (retryCount + 1));
                 retryTask(task, retryCount + 1);
             } else {
-                log.info("Task failed after max retries.");
+                log.info("Task failed after max retries");
             }
         }
     }

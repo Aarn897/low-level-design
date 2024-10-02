@@ -11,6 +11,6 @@ public class CreditCardPayment implements PaymentMethod {
 
     @Override
     public void pay(double amount) {
-        log.info("Paid Rs" + amount + " using Credit Card: " + cardNumber);
+        log.info("Paid Rs {} using Credit Card: {}",amount, cardNumber);
     }
 }

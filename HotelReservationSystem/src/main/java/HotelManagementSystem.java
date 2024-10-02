@@ -51,10 +51,10 @@ public class HotelManagementSystem {
     public String bookRoom(String guestId, RoomType roomType, LocalDate checkIn, LocalDate checkOut) throws Exception {
         Guest guest = guestService.getGuest(guestId);
         if (guest == null) {
-            throw new Exception("Guest not found.");
+            throw new Exception("Guest not found");
         }
         Reservation reservation = reservationService.bookRoom(guest, roomType, checkIn, checkOut);
-        log.info("Room booked with Reservation ID: " + reservation.getReservationId());
+        log.info("Room booked with Reservation ID: {}", reservation.getReservationId());
         return reservation.getReservationId();
     }
 

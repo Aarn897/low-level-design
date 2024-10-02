@@ -28,9 +28,9 @@ public class ReportServiceImpl implements ReportService {
                 occupancy.put(type, occupancy.get(type) + 1);
             }
         }
-        log.info("Occupancy Report:");
+        log.info("Occupancy Report :");
         for (Map.Entry<RoomType, Integer> entry : occupancy.entrySet()) {
-            log.info(entry.getKey() + ": " + entry.getValue() + " rooms occupied.");
+            log.info("{} : {} rooms occupied", entry.getKey(), entry.getValue());
         }
     }
 
@@ -51,6 +51,6 @@ public class ReportServiceImpl implements ReportService {
                 totalRevenue += pricing.get(type) * days;
             }
         }
-        log.info("Total Revenue: Rs" + totalRevenue);
+        log.info("Total Revenue: Rs {}", totalRevenue);
     }
 }

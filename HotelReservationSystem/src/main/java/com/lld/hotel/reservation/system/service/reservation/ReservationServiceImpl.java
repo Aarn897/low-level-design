@@ -51,27 +51,27 @@ public class ReservationServiceImpl implements ReservationService {
     public void checkIn(String reservationId) throws Exception {
         Reservation reservation = reservations.get(reservationId);
         if (reservation == null) {
-            throw new Exception("Reservation not found.");
+            throw new Exception("Reservation not found");
         }
         if (reservation.getStatus() != ReservationStatus.BOOKED) {
             throw new Exception("Cannot check in. Current status: " + reservation.getStatus());
         }
         reservation.setStatus(ReservationStatus.CHECKED_IN);
-        log.info("Checked in reservation: " + reservationId);
+        log.info("Checked in reservation: {}", reservationId);
     }
 
     @Override
     public void checkOut(String reservationId) throws Exception {
         Reservation reservation = reservations.get(reservationId);
         if (reservation == null) {
-            throw new Exception("Reservation not found.");
+            throw new Exception("Reservation not found");
         }
         if (reservation.getStatus() != ReservationStatus.CHECKED_IN) {
             throw new Exception("Cannot check out. Current status: " + reservation.getStatus());
         }
         reservation.setStatus(ReservationStatus.CHECKED_OUT);
         reservation.getRoom().setAvailability(true);
-        log.info("Checked out reservation: " + reservationId);
+        log.info("Checked out reservation: {}", reservationId);
     }
 
     public Collection<Reservation> getAllReservations() {
