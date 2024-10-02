@@ -8,7 +8,9 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class TaskScheduler {
     private final PriorityBlockingQueue<PriorityTask> priorityTaskQueue;
     private final BlockingQueue<Task> simpleTaskQueue;
@@ -50,10 +52,10 @@ public class TaskScheduler {
             task.execute();
         } catch (Exception e) {
             if (retryCount < maxRetries) {
-                System.out.println("Retrying task, attempt: " + (retryCount + 1));
+                log.info("Retrying task, attempt: {}", (retryCount + 1));
                 retryTask(task, retryCount + 1);
             } else {
-                System.out.println("Task failed after max retries.");
+                log.info("Task failed after max retries.");
             }
         }
     }

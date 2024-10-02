@@ -1,17 +1,17 @@
 package com.lld.tash.scheduler.task;
 
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@AllArgsConstructor
 public class SimplePriorityTask implements PriorityTask {
     private final String name;
     private final int priority;
 
-    public SimplePriorityTask(String name, int priority) {
-        this.name = name;
-        this.priority = priority;
-    }
-
     @Override
     public void execute() {
-        System.out.println("Executing priority task: " + name + " with priority: " + priority);
+        log.info("Executing priority task: {} with priority: {}", name, priority);
     }
 
     @Override
