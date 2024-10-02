@@ -6,15 +6,13 @@ import com.lld.hotel.reservation.system.service.room.RoomType;
 import com.lld.hotel.reservation.system.service.reservation.ReservationServiceImpl;
 import java.util.EnumMap;
 import java.util.Map;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@AllArgsConstructor
 public class ReportServiceImpl implements ReportService {
     private final ReservationServiceImpl reservationService;
-
-    public ReportServiceImpl(ReservationServiceImpl reservationService) {
-        this.reservationService = reservationService;
-    }
 
     @Override
     public void generateOccupancyReport() {
